@@ -1,0 +1,505 @@
+@import url(https://fonts.googleapis.com/css?family=Exo+2:200i);
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(0, 0, 0);
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+}
+
+header {
+    /* Fondo */
+    background-image: url(corazon.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    position:static;
+
+    /* Disposición */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#initial-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(fondoI1.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    background-position: center;
+    padding: 3vw;
+}
+
+@media (max-width: 220px) {
+    #initial-view{
+        background-size: cover;
+    }
+}
+
+#initial-view h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15vw;
+    font-weight: 20;
+    font-style: italic;
+    font-family: 'Exo 2', sans-serif;
+    color: #fff;
+    text-align: center;
+    padding: 3vw;
+    border: 0.5vw solid #fff;
+    border-radius: 3vw;
+    animation: flickerButton 1.5s infinite alternate;    
+}
+
+.bordeInicial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3vw;
+    width: 100%;
+    height: 100%;
+    box-shadow:
+    0 0 1vw #ffffff,
+    inset 0 0 1vw #ffffff,
+    0 0 2vw var(--neon-pink),
+    inset 0 0 2vw var(--neon-pink),
+    0 0 4vw var(--neon-pink),
+    inset 0 0 4vw var(--neon-pink);    
+}
+
+#initial-view h1:hover{
+    cursor: pointer;
+}
+
+:root {
+    /* Base font size */
+    font-size: 10vw;   
+    
+    /* Set neon color */
+    --neon-pink: #ff00c5;
+    --neon-blue: #00FFF7;
+  }
+
+h1::-moz-selection {
+    background-color: var(--neon-blue);
+    color: var(--neon-pink);
+  }
+  
+  h1::selection {
+    background-color: var(--neon-blue);
+    color: var(--neon-pink);
+  }
+  
+  h1:focus {
+    outline: none;
+  }
+  
+  /* Animate neon flicker */
+  @keyframes flickerButton {
+      
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        
+          text-shadow:
+              -0.2vw -0.2vw 1vw #fff,
+              0.2vw 0.2vw 1vw #fff,
+              0 0 2vw var(--neon-pink),
+              0 0 4vw var(--neon-pink),
+              0 0 6vw var(--neon-pink),
+              0 0 8vw var(--neon-pink),
+              0 0 10vw var(--neon-pink);
+          
+          box-shadow:
+              0 0 .5vw #fff,
+              inset 0 0 .5vw #fff,
+              0 0 2vw var(--neon-blue),
+              inset 0 0 2vw var(--neon-blue),
+              0 0 4vw var(--neon-blue),
+              inset 0 0 4vw var(--neon-blue);        
+      }
+      
+      20%, 24%, 55% {        
+          text-shadow: none;
+          box-shadow: none;
+      }    
+  }
+
+#main-content {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 1s ease; /* Transición de opacidad y transformación */
+    transform: translateY(100%); /* Inicialmente fuera de la pantalla */
+}
+
+#main-content.show {
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    transform: translateY(0); /* Muestra el contenido principal */
+    z-index: 10;
+    background-color: rgb(0, 0, 0);
+}
+
+/* Estilos para el botón de transición */
+.transition-button {
+    position: absolute;
+    bottom: 20px;
+    padding: 15px 30px;
+    font-size: 24px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
+}
+
+.transition-button:hover {
+    background-color: rgba(0, 0, 0, 1);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Animaciones de luces neón para las letras */
+.flickerPink {
+    font-size: 15vw;
+    animation: flickerPink 1s linear infinite alternate;
+    font-family: "Playwrite NO", cursive;
+}
+
+.flickerBlue {
+    font-size: 8vw;
+    animation: flickerBlue 1s linear infinite alternate;
+    font-family: "Playwrite NO", cursive;
+    text-align: center;
+}
+
+@keyframes flickerPink {
+    from {
+        text-shadow:
+        0 0 3px #fff, /* Sombra blanca */
+        0 0 5px #fff, /* Sombra blanca */
+        0 0 7px var(--neon-pink), /* Sombra neon */
+        0 0 10px var(--neon-pink), /* Sombra neon */
+        0 0 15px var(--neon-pink), /* Sombra neon */
+        0 0 20px var(--neon-pink); /* Sombra neon */
+        color: #ffffff;
+    }
+    to {
+        text-shadow:
+        0 0 10px #fff, /* Sombra blanca */
+        0 0 14px #fff, /* Sombra blanca */
+        0 0 20px var(--neon-pink), /* Sombra neon */
+        0 0 24px var(--neon-pink), /* Sombra neon */
+        0 0 34px var(--neon-pink), /* Sombra neon */
+        0 0 44px var(--neon-pink); /* Sombra neon */
+        color: #ffffff;
+    }
+}
+
+@keyframes flickerBlue {
+    from {
+        text-shadow:
+        0 0 3px #fff, /* Sombra blanca */
+        0 0 5px #fff, /* Sombra blanca */
+        0 0 7px var(--neon-blue), /* Sombra neon */
+        0 0 10px var(--neon-blue), /* Sombra neon */
+        0 0 15px var(--neon-blue), /* Sombra neon */
+        0 0 20px var(--neon-blue); /* Sombra neon */
+        color: #ffffff;
+    }
+    to {
+        text-shadow:
+        0 0 6px #fff, /* Sombra blanca */
+        0 0 10px #fff, /* Sombra blanca */
+        0 0 20px var(--neon-blue), /* Sombra neon */
+        0 0 24px var(--neon-blue), /* Sombra neon */
+        0 0 34px var(--neon-blue), /* Sombra neon */
+        0 0 44px var(--neon-blue); /* Sombra neon */
+        color: #ffffff;
+    }
+}
+
+.invitacion{
+    z-index: 20;
+    position:absolute;
+    top: 100vh;
+    width: 100%;
+    height: 100vh;
+    color: #fff;
+    padding: 5vw;
+    margin: 0;
+}
+
+.message-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Playwrite DE Grund", cursive;
+    background: linear-gradient(rgba(255, 0, 234, 0.2), rgba(0, 255, 242, 0.2));
+    border-radius: 5vw;
+    text-align: center;
+    font-size: 5vw;
+    padding: 5%;
+    text-shadow: 0 0 10px #ff00dd;
+
+    transform: translateY(20vh);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    box-shadow: 0 0 4px var(--neon-blue), 0 0 8px var(--neon-blue), 0 0 12px var(--neon-blue), 0 0 16px var(--neon-blue)
+}
+
+.message-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.title{
+    font-size: 5vw;
+    animation: flickerPink 1s linear infinite alternate;
+    font-family: "Playwrite NO", cursive;
+}
+
+.fecha{
+    font-size: 5vw;
+    animation: flickerBlue 1s linear infinite alternate;
+    font-family: "Playwrite NO", cursive;
+}
+
+#countdown {
+    color: white;
+    font-size: 5vw;
+    z-index: 5;
+    text-align: center;
+}
+
+#countdown p {
+    margin: 0;
+    font-size: 5vw;
+    color: white;
+    text-shadow: 0 0 10px #ff00dd;
+}
+
+#timer {
+    width: 100%;
+    text-align: center;
+}
+
+.container-numbers{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.numbers{
+    color: #00FFF7;
+}
+
+.labels{
+    font-size: 4vw;
+}
+
+#timer td {
+    padding: 10px 20px;
+    font-size: 5vw;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px #ffffff;
+}
+
+#timer td:last-child {
+    padding-right: 0;
+}
+
+#timer tr:last-child td {
+    font-size: 3vw;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ff00de;
+}
+
+.dresscode{
+    animation: neonBorder 2s infinite alternate;
+    border-radius: 5vw;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    font-size: 8vw;
+    font-family: "Playwrite NO", cursive;
+    text-align: right;
+    padding: 5%;
+    transform: translateY(20vh);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.dresscode.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#rosa{
+    width: 30%;
+    height: 60%;
+    position: fixed;
+    top:20%;
+    left: 2%;
+}
+
+iframe{
+    width: 100%;
+    height: 50vh;
+}
+
+#direccion{
+    font-size: 4vw;
+}
+
+.despedida{
+    font-size: 8vw;
+    animation: flickerPink 1s linear infinite alternate;
+    font-family: "Playwrite NO", cursive;
+    text-align: center;
+}
+
+.stick{
+    position: sticky;
+    top:40%
+}
+
+.asistencia{
+    display: flex;
+    justify-content: center;
+    flex-direction:row;
+    align-items: center;
+}
+
+.asistencia img{
+    width: 40%;
+}
+
+.title-seccion{
+    font-size: 6vw;
+    animation: flickerPink 1s linear infinite alternate;
+    font-family: "Playwrite NO", cursive;
+    text-align: center;
+}
+
+.celular{
+    cursor: pointer;
+    padding: 5%;
+}
+
+.celular:hover{
+    box-shadow:
+    0 0 1vw #ffffff,
+    inset 0 0 1vw #ffffff,
+    0 0 2vw var(--neon-pink),
+    inset 0 0 2vw var(--neon-pink),
+    0 0 4vw var(--neon-pink),
+    inset 0 0 4vw var(--neon-pink);    
+    border-radius: 10vw;
+}
+
+#musicControlButton {
+    position: fixed;
+    bottom: 0;
+    right: 1vw;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.0);
+    border: none;
+    width: 6vw;
+    height: 9vw;
+    font-size: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 30;
+}
+
+.pulsera{
+    font-size: 6vw;
+    animation: flickerBlue 1s linear infinite alternate;
+    font-family: "Playwrite NO", cursive;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(20vh);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.pulsera.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pulsera img{
+    width: 50%;
+}
+
+
+  @keyframes neonBorder {
+    from {
+        text-shadow:
+        0 0 3px #fff, /* Sombra blanca */
+        0 0 5px #fff, /* Sombra blanca */
+        0 0 7px var(--neon-pink), /* Sombra neon */
+        0 0 10px var(--neon-pink), /* Sombra neon */
+        0 0 15px var(--neon-pink), /* Sombra neon */
+        0 0 20px var(--neon-pink); /* Sombra neon */
+        color: #ffffff;
+        box-shadow: none;
+    }
+    to {
+        text-shadow:
+        0 0 10px #fff, /* Sombra blanca */
+        0 0 14px #fff, /* Sombra blanca */
+        0 0 20px var(--neon-pink), /* Sombra neon */
+        0 0 24px var(--neon-pink), /* Sombra neon */
+        0 0 34px var(--neon-pink), /* Sombra neon */
+        0 0 44px var(--neon-pink); /* Sombra neon */
+        color: #ffffff;
+        box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink), 0 0 30px var(--neon-pink), 0 0 40px var(--neon-pink);
+    }
+}
+
+.message{
+    color: white;
+    font-size: 5vw;
+    font-family: "Playwrite NO", cursive;
+    text-shadow:         
+    0 0 10px var(--neon-pink), /* Sombra neon */
+    0 0 12px var(--neon-pink), /* Sombra neon */
+    0 0 17px var(--neon-pink), /* Sombra neon */
+    0 0 22px var(--neon-pink); /* Sombra neon */;
+}
+
+.message2{
+    color: white;
+    font-size: 5vw;
+    font-family: "Playwrite NO", cursive;
+    text-shadow:         
+    0 0 10px var(--neon-blue), /* Sombra neon */
+    0 0 12px var(--neon-blue), /* Sombra neon */
+    0 0 17px var(--neon-blue), /* Sombra neon */
+    0 0 22px var(--neon-blue); /* Sombra neon */;
+}
