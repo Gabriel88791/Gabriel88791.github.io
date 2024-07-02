@@ -259,15 +259,15 @@ h1::-moz-selection {
     padding: 5%;
     text-shadow: 0 0 10px #ff00dd;
 
-    transform: translateY(20vh);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /*transform: translateY(20vh);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;*/
     box-shadow: 0 0 4px var(--neon-blue), 0 0 8px var(--neon-blue), 0 0 12px var(--neon-blue), 0 0 16px var(--neon-blue)
 }
 
-.message-container.visible {
+/*.message-container.visible {
     opacity: 1;
     transform: translateY(0);
-}
+}*/
 
 .title{
     font-size: 5vw;
@@ -344,21 +344,19 @@ h1::-moz-selection {
     font-family: "Playwrite NO", cursive;
     text-align: right;
     padding: 5%;
-    transform: translateY(20vh);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /*transform: translateY(20vh);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;*/
 }
 
-.dresscode.visible {
+/*.dresscode.visible {
     opacity: 1;
     transform: translateY(0);
-}
+}*/
 
 #rosa{
     width: 30%;
     height: 60%;
-    position: fixed;
-    top:20%;
-    left: 2%;
+
 }
 
 iframe{
@@ -443,14 +441,14 @@ iframe{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateY(20vh);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /*transform: translateY(20vh);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;*/
 }
 
-.pulsera.visible {
+/*.pulsera.visible {
     opacity: 1;
     transform: translateY(0);
-}
+}*/
 
 .pulsera img{
     width: 50%;

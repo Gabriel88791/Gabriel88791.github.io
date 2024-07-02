@@ -78,3 +78,13 @@ function toggleMusic() {
         document.getElementById('musicControlButton').innerHTML = "🔇";
     }
 }
+
+function setFullscreenHeight() {
+    document.querySelector('#initial-view').style.height = `${window.innerHeight}px`;
+}
+
+// Ajusta la altura al cargar la página
+window.addEventListener('load', setFullscreenHeight);
+
+// Ajusta la altura cuando se redimensiona la ventana
+window.addEventListener('resize', setFullscreenHeight);
