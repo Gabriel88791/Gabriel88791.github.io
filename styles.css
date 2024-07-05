@@ -10,6 +10,40 @@
     --neon-blue: #00FFF7;
   }
 
+/* Personalizar scrollbar para navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 8px; /* Ancho de la scrollbar */
+    height: 8px; /* Altura de la scrollbar (para scrollbar horizontal) */
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; /* Fondo de la pista de scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--neon-pink); /* Color del pulgar de scrollbar */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Personalizar scrollbar para Firefox */
+html {
+    scrollbar-width: thin; /* Ancho de la scrollbar */
+    scrollbar-color: var(--neon-blue); /* Color del pulgar y la pista */
+}
+
+/* Ocultar flechas en los scrollbars */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Ocultar flechas en los scrollbars para Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
 @keyframes flickerButton {
     
     0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
@@ -393,11 +427,20 @@ body {
     #dresscode{
         max-width: 400px;
     } 
+    #dresscode-title{
+        font-size: 2.5vw;
+    }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 600px) { 
+    #dresscode-title{
+        font-size: 2vw;
+    }
+}
+
+@media (min-width: 850px) {
     #dresscode-title h1{
-        font-size: 1.6em;
+        font-size: 1.1em;
     }   
 }
 
