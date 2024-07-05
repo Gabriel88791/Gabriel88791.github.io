@@ -335,26 +335,15 @@ body {
 
 @media (min-width: 400px) {
     #invitation-item-date{
-        font-size: 8vw;
         max-width: 400px;
-    }
-
-    .labels{
-        font-size: 0.6em;
-    }
-    
+    }    
 }
 
 @media (min-width: 1000px) {
     #invitation-item-date{
         font-size: 1.5em;
         max-width: 400px;
-    }
-
-    .labels{
-        font-size: 0.6em;
-    }
-    
+    }    
 }
 /*------------FIN: Invitación principal ------------*/
 
@@ -408,7 +397,7 @@ body {
 
 @media (min-width: 800px) {
     #dresscode-title h1{
-        font-size: 1em;
+        font-size: 1.6em;
     }   
 }
 

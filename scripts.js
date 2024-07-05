@@ -1,4 +1,4 @@
-//FUNCIÓN: Cuando se hace click en el botón inicial (Let's Party)
+// FUNCIÓN: Cuando se hace click en el botón inicial (Let's Party)
 document.getElementById('initial-button').addEventListener('click', function() {  
     // Muestra el botón de control de audio
     document.getElementById('musicControlButton').style.display = 'inline-block';
@@ -15,7 +15,6 @@ document.getElementById('initial-button').addEventListener('click', function() {
 
 document.addEventListener('DOMContentLoaded', function () {
     const audio = document.getElementById('background-audio');
-    const toggleButton = document.getElementById('musicControlButton');
     const audioIcon = document.getElementById('audioIcon');
 
     document.getElementById('musicControlButton').style.display = 'none';
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 }); 
+    }, { threshold: 0.1 }); 
 
     let items = ['invitation-item-date', 'invitation-item-dresscode', 'invitation-item-address', 'invitation-item-attendance', 'invitation-item-message', 'invitation-item-bye'];
     items.forEach(id => {
