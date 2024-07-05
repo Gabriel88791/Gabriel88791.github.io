@@ -561,7 +561,7 @@ iframe{
     justify-content: center;
     flex-wrap: wrap;
     width: 80%;
-    height: 50%;
+    height: 30%;
     align-content: center;
 }
 
@@ -582,7 +582,7 @@ iframe{
 }
 
 #celular img{
-    width: 80%;
+    width: 30%;
 }
 
 @media (min-width: 400px) {
@@ -602,7 +602,7 @@ iframe{
 
 @media (min-width: 1000px) {
     #invitation-item-attendance{
-        max-width: 400px;
+        height: 70vh;
     }
     #attendance-title{
         font-size: 1.8em;
@@ -611,7 +611,7 @@ iframe{
         font-size: 1.5em;
     }  
     #celular{
-        font-size: 2em;
+        font-size: 1em;
     }
 }
 
@@ -675,6 +675,7 @@ iframe{
 @media (min-width: 1000px) {
     #invitation-item-message{
         max-width: 400px;
+        height: 100vh;
     }
     #message1{
         font-size: 1.5em;
