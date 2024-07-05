@@ -532,7 +532,7 @@ iframe{
     text-align: center;
     padding: 2vh;
     text-shadow: 0 0 10px #ff00dd;
-    height: 90vh;
+    height: 50vh;
     width: 90vw;
     margin-top: 40px;
     box-shadow: 0 0 4px var(--neon-blue), 0 0 8px var(--neon-blue), 0 0 12px var(--neon-blue), 0 0 16px var(--neon-blue);
