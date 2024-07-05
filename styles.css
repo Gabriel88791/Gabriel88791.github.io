@@ -130,7 +130,7 @@
     width: 8vw;
 }
 
-@media (min-width: 300px) {
+@media (min-width: 400px) {
     #musicControlButton img{
         max-width: 40px;
     }
@@ -172,7 +172,7 @@ body {
     cursor: pointer;
 }
 
-@media (max-width: 300px) {
+@media (max-width: 400px) {
     #initial-view{
         background-size: cover;
     }
@@ -333,7 +333,19 @@ body {
     font-size: 0.5em;
 }
 
-@media (min-width: 300px) {
+@media (min-width: 400px) {
+    #invitation-item-date{
+        font-size: 8vw;
+        max-width: 400px;
+    }
+
+    .labels{
+        font-size: 0.6em;
+    }
+    
+}
+
+@media (min-width: 1000px) {
     #invitation-item-date{
         font-size: 1.5em;
         max-width: 400px;
@@ -344,7 +356,6 @@ body {
     }
     
 }
-
 /*------------FIN: Invitación principal ------------*/
 
 /*----------------INICIO: Dresscode ----------------*/
@@ -381,7 +392,7 @@ body {
 
 #dresscode-title{
     width: 60%;
-    font-size: 2vw;
+    font-size: 1.5vw;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -389,7 +400,7 @@ body {
     align-items: center;
 }
 
-@media (min-width: 300px) {
+@media (min-width: 400px) {
     #dresscode{
         max-width: 400px;
     } 
@@ -445,7 +456,20 @@ iframe{
     font-size: 4vw;
 }
 
-@media (min-width: 300px) {
+@media (min-width: 400px) {
+    #invitation-item-address{
+        max-width: 400px;
+    }
+    #address-title{
+        font-size: 6vw;
+    }
+    #adress-description{
+        font-size: 3vw;
+    }
+    
+}
+
+@media (min-width: 1000px) {
     #invitation-item-address{
         font-size: 1.2em;
         max-width: 400px;
@@ -529,7 +553,22 @@ iframe{
     width: 80%;
 }
 
-@media (min-width: 300px) {
+@media (min-width: 400px) {
+    #invitation-item-attendance{
+        max-width: 400px;
+    }
+    #attendance-title{
+        font-size: 6vw;
+    }  
+    #attendance-description{
+        font-size: 5vw;
+    }  
+    #celular{
+        font-size: 4vw;
+    }
+}
+
+@media (min-width: 1000px) {
     #invitation-item-attendance{
         max-width: 400px;
     }
@@ -589,7 +628,19 @@ iframe{
     0 0 22px var(--neon-blue);
 }
 
-@media (min-width: 300px) {
+@media (min-width: 400px) {
+    #invitation-item-message{
+        max-width: 400px;
+    }
+    #message1{
+        font-size: 6vw;
+    }  
+    #message2{
+        font-size: 6vw;
+    }  
+}
+
+@media (min-width: 1000px) {
     #invitation-item-message{
         max-width: 400px;
     }
@@ -634,7 +685,7 @@ iframe{
     width: 100%;
 }
 
-@media (min-width: 300px) {
+@media (min-width: 400px) {
     #invitation-item-bye{
         max-width: 800px;
     } 
