@@ -14,36 +14,36 @@
     <link rel="icon" href="fiesta.webp" type="image/x-icon">
 </head>
 <body>
-    <button id="musicControlButton" onclick="toggleMusic()">🔊</button>
+    <button id="musicControlButton" onclick="toggleMusic()">
+        <img id="audioIcon" src="botonMusica.png" alt="">
+    </button>
     <div id="initial-view">
-        <div class="bordeInicial">
-            <h1 id ="show-content-button"spellcheck="false">Let's Party?</h1>
+        <div class="initial-view-item">
+            <h1 id ="initial-button" spellcheck="false">Let's Party</h1>
         </div>
     </div>
     <div id="main-content">
         <audio id="background-audio" src="musica.mp3" loop></audio>
-        <div class="contenido">
-            <header>
-                <div class="flickerPink">Sweet XVI</div>
-                <div class="flickerBlue">Aurora Betshabé</div>
-            </header>
+        <div id="header">
+            <div id="header-title">Sweet XVI</div>
+            <div id="header-subtitle">Aurora Betshabé</div>
         </div>
-        <div class="invitacion" >
-            <div class="message-container">
+        <div id="invitation" >
+            <div id="invitation-item-date" class="fade-item">
                 <div>
                     Te invito a celebrar mi:
-                </div><br>
-                <div class="title" style="font-size: 5vw;">
+                </div>
+                <div id="neonParty">
                     NEON PARTY
-                </div><br>
-                <div class="fecha" style="font-size: 5vw;">
+                </div>
+                <div class="date">
                     Viernes 13 de septiembre de 2024
                 </div>
-                <div class="fecha" style="font-size: 5vw;">
+                <div class="date">
                     7:30 pm
-                </div><br>
+                </div>
                 <div id="countdown" class="countdown">
-                    <p id="wait-time">La fiesta comienza en:</p><br>
+                    <p id="wait-time">La fiesta comienza en:</p>
                     <div id="timer">
                         <div class="container-numbers">
                             <div>
@@ -65,54 +65,63 @@
                         </div>
                     </div>
                 </div>
-            </div><br>
-            <div>
-                <div class="dresscode">
-                    <img id="rosa" src="rosa2.jpg" alt="">
-                    Dress code: NEON
-                </div><br>
+            </div>
+            <div id="invitation-item-dresscode" class="fade-item">
+                <div id="dresscode">
+                    <div id="dresscode-img">
+                        <img id="rosa" src="rosa2.jpg" alt="">
+                    </div>
+                    <div id="dresscode-title">
+                        <h1>Dress code: NEON</h1>
+                    </div>
+                </div>
             </div>
 
-            <div class="message-container">
-                <div class="title-seccion">¿Cómo llegar?</div><br>
-                Salón de eventos IMITI <br><br>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5850215275295!2d-99.20953692478567!3d19.430327981848656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2034c13fb7745%3A0x5479fe2b3820a7cd!2sIMITI%20LOMAS!5e0!3m2!1ses-419!2smx!4v1719556283025!5m2!1ses-419!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <br>
-                <div id="direccion">
+            <div id="invitation-item-address" class="fade-item">
+                <div id="address-title">¿Cómo llegar?</div>
+                <div>
+                    Salón de eventos IMITI
+                </div>
+                <div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5850215275295!2d-99.20953692478567!3d19.430327981848656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2034c13fb7745%3A0x5479fe2b3820a7cd!2sIMITI%20LOMAS!5e0!3m2!1ses-419!2smx!4v1719556283025!5m2!1ses-419!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>                
+                <div id="adress-description">
                     Perif. Blvd. Manuel Ávila Camacho 50 y 56, piso 1, Lomas - Virreyes, Lomas de Chapultepec, 11000 Ciudad de México
                 </div>
-            </div><br>
+            </div>
+            <div>
+                
+            </div>
 
-            <div class="message-container">
-                <div class="title-seccion">Confirmar asistencia</div>
-                Favor de confirmar asistencia antes del 10 de septiembre<br><br>
-                <div class="asistencia">   
-                    <div class="celular" id="celular1">
-                        <img src="celular.png" alt=""> 
+            <div id="invitation-item-attendance" class="fade-item">
+                <div id="attendance-title">Confirmar asistencia</div>
+                <div id="attendance-description">Favor de confirmar asistencia antes del 10 de septiembre</div>  
+                    <div id="celular">
+                        <div>
+                            <img src="celular.png" alt=""> 
+                        </div>
                         <div>Aurora</div>
                     </div>       
-                </div><br>
-            </div><br>
+            </div><div></div>
 
-            <div class="message-container">
-                <div class="message">Al llegar a mis 16 años, cada día ha sido una página 
+            <div id="invitation-item-message" class="fade-item">
+                <div id="message1">Al llegar a mis 16 años, cada día ha sido una página 
                     llena de amor y aprendizaje gracias a mi querida familia. <br><br>Es un camino que 
                     he recorrido con su apoyo y cariño, y ahora quiero celebrar con todos ustedes
                     este nuevo capítulo. <br><br>Tu presencia será el regalo más valioso <br><br>
-                    <div class="message2">¡Acompáñanos en este día tan especial!</div>
-                </div>   
-            </div><br><br>
+                </div>  
+                <div id="message2">¡Acompáñanos en este día tan especial!</div> 
+            </div><div></div>
 
-            <div class="pulsera">
-                <div>No olvides llevar tu pulsera </div><br>
-                <img src="fiesta.webp" alt="">
-            </div><br>
-            
-            <div class="despedida"><div class="stick">
-                ¡Te esperamos!
-            </div></div><br>    
-
-
+            <div id="invitation-item-bye" class="fade-item">
+                <div id="bye1">No olvides llevar tu pulsera </div>
+                <div>
+                    <img src="fiesta.webp" alt="">
+                </div>
+                <div id="bye2">
+                    ¡Te esperamos!
+                </div>
+            </div>
         </div>
     </div> 
     <script src="scripts.js"></script>

@@ -1,8 +1,8 @@
-document.getElementById('show-content-button').addEventListener('click', function() {
-    // Ocultar el botón al hacer clic
-    document.getElementById('show-content-button').style.opacity = '0';
-    document.getElementById('musicControlButton').style.display='inline-block';
-    
+//FUNCIÓN: Cuando se hace click en el botón inicial (Let's Party)
+document.getElementById('initial-button').addEventListener('click', function() {  
+    // Muestra el botón de control de audio
+    document.getElementById('musicControlButton').style.display = 'inline-block';
+
     // Mostrar el contenido principal con animación
     var mainContent = document.getElementById('main-content');
     mainContent.classList.add('show');
@@ -10,12 +10,20 @@ document.getElementById('show-content-button').addEventListener('click', functio
     // Reproducir el audio de fondo
     const audio = document.getElementById('background-audio');
     audio.play();
+    localStorage.setItem('audioState', 'playing'); // Guardar estado del audio
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('musicControlButton').style.display='none';
+    const audio = document.getElementById('background-audio');
+    const toggleButton = document.getElementById('musicControlButton');
+    const audioIcon = document.getElementById('audioIcon');
+
+    document.getElementById('musicControlButton').style.display = 'none';
+
+    // Fecha para cuenta regresiva
     var countdownDate = new Date("Sep 13, 2024 19:30:00").getTime();
 
+    // Cuenta regresiva
     var countdownFunction = setInterval(function () {
         var now = new Date().getTime();
         var distance = countdownDate - now;
@@ -37,54 +45,76 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }, 1000);
 
-    const fixedButton = document.getElementById('celular1');
+    // Animaciones al aparecer
+    let observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 }); 
 
+    let items = ['invitation-item-date', 'invitation-item-dresscode', 'invitation-item-address', 'invitation-item-attendance', 'invitation-item-message', 'invitation-item-bye'];
+    items.forEach(id => {
+        let element = document.getElementById(id);
+        if (element) {
+            observer.observe(element);
+        }
+    });
+
+    // Dirigir al WhatsApp de Aurora con mensaje predeterminado
+    const fixedButton = document.getElementById('celular');
     fixedButton.addEventListener('click', function() {
         window.location.href = 'https://wa.me/15521801762?text=¡Hola!%20quiero%20confirmar%20mi%20asistencia%20a%20tu%20fiesta';
     });
 
-    var boxes = document.querySelectorAll('.message-container, .dresscode, .pulsera');
-    var lastScrollTop = 0;
-
-    function checkVisibility() {
-        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        boxes.forEach(function(box) {
-            var rect = box.getBoundingClientRect();
-            var windowHeight = window.innerHeight;
-
-            if (scrollTop > lastScrollTop && rect.top <= windowHeight && rect.bottom >= 0) {
-                box.classList.add('visible');
-            } else if (scrollTop < lastScrollTop) {
-                box.classList.remove('visible');
+    // Pausar el audio cuando la página no está visible
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            if (!audio.paused) {
+                audio.pause();
+                localStorage.setItem('audioState', 'playing'); // Guardar estado del audio
+                audioIcon.src = 'botonSilencio.png';  // Cambia a la imagen de reproducción
             }
-        });
+        } else {
+            if (localStorage.getItem('audioState') === 'playing') {
+                audio.play();
+                audioIcon.src = 'botonMusica.png';  // Cambia a la imagen de pausa
+            }
+        }
+    });
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Para evitar números negativos en dispositivos móviles
+    // Restaurar el estado del audio al cargar la página
+    if (localStorage.getItem('audioState') === 'playing') {
+        audio.play();
+        audioIcon.src = 'botonMusica.png';  // Cambia a la imagen de pausa
+    } else {
+        audio.pause();
+        audioIcon.src = 'botonSilencio.png';  // Cambia a la imagen de reproducción
     }
 
-    window.addEventListener('scroll', checkVisibility);
-    checkVisibility(); // Para verificar la visibilidad al cargar la página
-
+    // Ajusta la altura al cargar la página
+    setFullscreenHeight();
+    // Ajusta la altura cuando se redimensiona la ventana
+    window.addEventListener('resize', setFullscreenHeight);
 });
 
 function toggleMusic() {
     const audio = document.getElementById('background-audio');
+    const audioIcon = document.getElementById('audioIcon');
+
     if (audio.paused) {
         audio.play();
-        document.getElementById('musicControlButton').innerHTML = "🔊";
+        localStorage.setItem('audioState', 'playing'); // Guardar estado del audio
+        audioIcon.src = 'botonMusica.png';  // Cambia a la imagen de pausa
     } else {
         audio.pause();
-        document.getElementById('musicControlButton').innerHTML = "🔇";
+        localStorage.setItem('audioState', 'paused'); // Guardar estado del audio
+        audioIcon.src = 'botonSilencio.png';  // Cambia a la imagen de reproducción
     }
 }
 
 function setFullscreenHeight() {
     document.querySelector('#initial-view').style.height = `${window.innerHeight}px`;
 }
-
-// Ajusta la altura al cargar la página
-window.addEventListener('load', setFullscreenHeight);
-
-// Ajusta la altura cuando se redimensiona la ventana
-window.addEventListener('resize', setFullscreenHeight);
