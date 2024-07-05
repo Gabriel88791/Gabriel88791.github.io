@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1 }); 
+    }, { threshold: 0.5 }); 
 
     let items = ['invitation-item-date', 'invitation-item-dresscode', 'invitation-item-address', 'invitation-item-attendance', 'invitation-item-message', 'invitation-item-bye'];
     items.forEach(id => {
@@ -86,12 +86,13 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Restaurar el estado del audio al cargar la página
-    if (localStorage.getItem('audioState') === 'playing') {
-        audio.play();
-        audioIcon.src = 'botonMusica.png';  // Cambia a la imagen de pausa
-    } else {
+    if (localStorage.getItem('audioState') === 'paused') {
         audio.pause();
         audioIcon.src = 'botonSilencio.png';  // Cambia a la imagen de reproducción
+    } else {
+        audio.play();
+        localStorage.setItem('audioState', 'playing'); // Guardar estado del audio
+        audioIcon.src = 'botonMusica.png';  // Cambia a la imagen de pausa
     }
 
     // Ajusta la altura al cargar la página
